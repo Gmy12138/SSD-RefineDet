@@ -1,6 +1,6 @@
 # SSD
-#### pytorch 1.1 and python 3.6 is suppoted
-A PyTorch implementation of YOLOv3, with support for training, inference and evaluation.
+### pytorch 1.1 and python 3.6 is suppoted
+A PyTorch implementation of SSD, with support for training, inference and evaluation.
 
 ## Introduction
 The method of SSD and RefineDet was used to perform defect detection on NEU surface defect database, and We adopted data enhancement methods such as random clipping, flipping and color enhancement. Finally achieved a satisfactory result.
