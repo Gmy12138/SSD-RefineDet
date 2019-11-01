@@ -1,0 +1,14 @@
+refinedet_output/
+ssd_output/
+result/
+demo/
+ssd300_120000/
+data/NEU-DET/train
+data/NEU-DET/valid
+data/samples/*.jpg
+weights/
+logs/
+eval/
+__pycache__
+checkpoints
+.idea/
