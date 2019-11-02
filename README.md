@@ -39,7 +39,7 @@ DE: Data Enhancement
 | RefineDet 320 (DE)      | 68.1              |
 
 ## Inference
-Uses pretrained weights to make predictions on images. The VGG16 measurement marked shows the inference time of this implementation on my 2080ti card.
+Uses pretrained weights to make predictions on images. The VGG16 measurement marked shows the inference time of this implementation on GPU 2080ti.
 
 | Model      |Backbone    | GPU      | FPS      |
 | -----------|:-----------|:--------:|:--------:|
