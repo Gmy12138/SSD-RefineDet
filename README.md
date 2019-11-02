@@ -1,5 +1,5 @@
 # SSD
-### pytorch 1.1 and python 3.6 is suppoted
+### pytorch 1.1 and python 3.6 is supported
 A PyTorch implementation of SSD, with support for training, inference and evaluation.
 
 ## Introduction
@@ -43,8 +43,8 @@ Uses pretrained weights to make predictions on images. The VGG16 measurement mar
 
 | Model      |Backbone    | GPU      | FPS      |
 | -----------|:-----------|:--------:|:--------:|
-| SSD        | VGG16      | 2080ti   |          |
-| RefineDet  | VGG16      | 2080ti   |          |
+| SSD        | VGG16      | 2080ti   |   5      |
+| RefineDet  | VGG16      | 2080ti   |   7      |
 
 
 
