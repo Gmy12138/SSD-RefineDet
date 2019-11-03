@@ -27,24 +27,21 @@ The method of SSD and RefineDet was used to perform defect detection on NEU surf
     
 ## Test
 Evaluates the model on NEU-DET test.
-```
-WDE: Without Data Enhancement    
-DE: Data Enhancement
-```
 
-| Model                   | mAP (min. 50 IoU) |
-| ----------------------- |:-----------------:|
-| SSD 300 (WDE)           | 37.8              |
-| SSD 300 (DE)            | 64.0              |
-| RefineDet 320 (DE)      | 68.1              |
+| Model      |Image Size|   Data Enhancement      | mAP (min. 50 IoU) |
+| -------    |:--------:|:-----------------------:|:-----------------:|
+| SSD        |300       |      NO                 | 37.8              |
+| SSD        |300       |      YES                | 64.0              |
+| RefineDet  |320       |      YES                | 68.1              |
+
 
 ## Inference
 Uses pretrained weights to make predictions on images. The VGG16 measurement marked shows the inference time of this implementation on GPU 2080ti.
 
-| Model      |Backbone    | GPU      | FPS      |
-| -----------|:-----------|:--------:|:--------:|
-| SSD        | VGG16      | 2080ti   |   5      |
-| RefineDet  | VGG16      | 2080ti   |   7      |
+| Model      |Backbone    |  Image Size     | GPU      | FPS      |
+| -----------|:----------:|:---------------:|:--------:|:--------:|
+| SSD        | VGG16      |     300         | 2080ti   |   10     |
+| RefineDet  | VGG16      |     320         | 2080ti   |   13     |
 
 
 

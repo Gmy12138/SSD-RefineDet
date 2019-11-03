@@ -74,11 +74,11 @@ dataloader = DataLoader(
         shuffle=False,
         num_workers=args.n_cpu,
     )
-prev_time = time.time()
+TIME=0
 for batch_i, (img_paths, input_imgs) in enumerate(dataloader):
     # Configure input
     # input_imgs = Variable(input_imgs.type(Tensor))
-
+    prev_time = time.time()
     # print(img_paths[0])
     xx = input_imgs  # wrap tensor in Variable
     if torch.cuda.is_available():
@@ -86,7 +86,11 @@ for batch_i, (img_paths, input_imgs) in enumerate(dataloader):
     y = net(xx)
 
     current_time = time.time()
-    inference_time = datetime.timedelta(seconds=current_time - prev_time)
+    inference_time = current_time - prev_time
+
+    if batch_i != 0:
+        TIME += inference_time
+
     prev_time = current_time
     print("\t+ Batch %d, Inference Time: %s" % (batch_i, inference_time))
 
@@ -147,5 +151,5 @@ for batch_i, (img_paths, input_imgs) in enumerate(dataloader):
     filename = img_paths[0].split("/")[-1].split(".")[0]
     plt.savefig(f"refinedet_output/{filename}.jpg", bbox_inches="tight",pad_inches=0.0)
     plt.close()
-
+print("FPS: %s" % (1/(TIME/5)))
 
