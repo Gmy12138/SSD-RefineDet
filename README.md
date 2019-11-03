@@ -38,10 +38,10 @@ Evaluates the model on NEU-DET test.
 ## Inference
 Uses pretrained weights to make predictions on images. The VGG16 measurement marked shows the inference time of this implementation on GPU 2080ti.
 
-| Model      |Backbone    |  Image Size     | GPU      | FPS      |
-|:----------:|:----------:|:---------------:|:--------:|:--------:|
-| SSD        | VGG16      |     300         | 2080ti   |   10     |
-| RefineDet  | VGG16      |     320         | 2080ti   |   13     |
+| Model      |Backbone    |  Image Size     | GPU      | FPS      | parameters(1e6)|FLOPs(1e9)|
+|:----------:|:----------:|:---------------:|:--------:|:--------:|:--------------:|:--------:|
+| SSD        | VGG16      |     300         | 2080ti   |   10     |     24.41      |  61.42   |
+| RefineDet  | VGG16      |     320         | 2080ti   |   13     |     34.05      |  74.93   |
 
 
 
