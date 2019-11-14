@@ -90,7 +90,7 @@ def match(threshold, truths, priors, variances, labels, loc_t, conf_t, idx):
         point_form(priors)
     )
     # (Bipartite Matching)
-    # [1,num_objects] best prior for each ground truth
+    # [num_objects,1] best prior for each ground truth
     best_prior_overlap, best_prior_idx = overlaps.max(1, keepdim=True)
     # [1,num_priors] best ground truth for each prior
     best_truth_overlap, best_truth_idx = overlaps.max(0, keepdim=True)
@@ -135,7 +135,7 @@ def refine_match(threshold, truths, priors, variances, labels, loc_t, conf_t, id
         decode_arm = decode(arm_loc, priors=priors, variances=variances)
         overlaps = jaccard(truths, decode_arm)
     # (Bipartite Matching)
-    # [1,num_objects] best prior for each ground truth
+    # [num_objects,1] best prior for each ground truth
     best_prior_overlap, best_prior_idx = overlaps.max(1, keepdim=True)
     # [1,num_priors] best ground truth for each prior
     best_truth_overlap, best_truth_idx = overlaps.max(0, keepdim=True)

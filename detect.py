@@ -125,9 +125,11 @@ for batch_i, (img_paths, input_imgs) in enumerate(dataloader):
             # print(score,label_name)
             display_txt = '%s: %.2f' % (label_name, score)
             pt = (detections[0, i, j, 1:] * scale).cpu().numpy()
+            pt[0] = pt[0] if pt[0] > 0 else 0
+            pt[1] = pt[1] if pt[1] > 0 else 0
             coords = (pt[0], pt[1]), pt[2] - pt[0] + 1, pt[3] - pt[1] + 1
             # print(pt)
-            color = colors[i-1]
+            color = colors[i]
             # currentAxis.add_patch(plt.Rectangle(*coords, fill=False, edgecolor=color, linewidth=2))
             # currentAxis.text(pt[0], pt[1], display_txt, bbox={'facecolor': color, 'alpha': 0.5})
             # j += 1
