@@ -66,8 +66,7 @@ args = parser.parse_args()
 os.makedirs("ssd_output", exist_ok=True)
 net = build_ssd('test', 300, 7)    # initialize SSD
 net.load_weights(args.trained_model)  #ssd300_701.pth是经过数据增强的
-
-
+net = net.cuda()
 
 dataloader = DataLoader(
         ImageFolder(args.dataset_root, img_size=args.img_size),
@@ -80,11 +79,13 @@ TIME=0
 for batch_i, (img_paths, input_imgs) in enumerate(dataloader):
     # Configure input
     # input_imgs = Variable(input_imgs.type(Tensor))
-    prev_time = time.time()
+
     # print(img_paths[0])
     xx = input_imgs  # wrap tensor in Variable
     if torch.cuda.is_available():
+
         xx = xx.cuda()
+    prev_time = time.time()
     y = net(xx)
 
     current_time = time.time()

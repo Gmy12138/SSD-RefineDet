@@ -66,7 +66,7 @@ args = parser.parse_args()
 os.makedirs("refinedet_output", exist_ok=True)
 net = build_refinedet('test', 320, 7)
 net.load_weights(args.trained_model)
-
+net = net.cuda()
 
 dataloader = DataLoader(
         ImageFolder(args.dataset_root, img_size=args.img_size),
@@ -78,11 +78,12 @@ TIME=0
 for batch_i, (img_paths, input_imgs) in enumerate(dataloader):
     # Configure input
     # input_imgs = Variable(input_imgs.type(Tensor))
-    prev_time = time.time()
+
     # print(img_paths[0])
     xx = input_imgs  # wrap tensor in Variable
     if torch.cuda.is_available():
         xx = xx.cuda()
+    prev_time = time.time()
     y = net(xx)
 
     current_time = time.time()

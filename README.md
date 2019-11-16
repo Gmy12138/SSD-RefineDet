@@ -12,9 +12,9 @@ The method of SSD and RefineDet was used to perform defect detection on NEU surf
 
 ## Installation
 ##### Clone and install requirements
-    $ git clone https://github.com/Gmy12138/SSD-RefineDet
+    $ git clone https://github.com/Gmy12138/SSD-RefineDet.git
     $ cd SSD-RefineDet/
-    $ sudo pip install -r requirements.txt
+    $ pip install -r requirements.txt
 
 ##### Download pretrained weights
     $ cd weights/
